@@ -1,0 +1,6 @@
+python-dotenv
+streamlit
+os
+ollama
+OpenAI
+markdown
