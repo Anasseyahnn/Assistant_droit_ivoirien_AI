@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+temp_uploads/
+.streamlit/config.toml
+.streamlit/credentials.toml
+.venv/
+env/
+venv/
