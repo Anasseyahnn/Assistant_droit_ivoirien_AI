@@ -31,15 +31,15 @@ st.markdown("""
     
     /* Styles généraux - Thème Studio Dark */
     html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
-        background-color: #050505 !important;
-        color: #ffffff !important;
+        background-color: #09090b !important;
+        color: #f4f4f5 !important;
         font-family: 'Space Grotesk', -apple-system, sans-serif !important;
     }
     
     /* Style de la barre latérale */
     [data-testid="stSidebar"] {
-        background-color: #0a0a0a !important;
-        border-right: 1px solid #1f1f1f !important;
+        background-color: #09090b !important;
+        border-right: 1px solid #27272a !important;
     }
     
     /* Titres globaux */
@@ -72,19 +72,19 @@ st.markdown("""
     /* Boutons secondaires (Historique, etc.) */
     .stButton>button[key*="save_btn"] {
         background-color: transparent !important;
-        color: #ffffff !important;
-        border: 1px solid #333333 !important;
+        color: #f4f4f5 !important;
+        border: 1px solid #3f3f46 !important;
     }
     .stButton>button[key*="save_btn"]:hover {
-        background-color: #111111 !important;
-        border-color: #555555 !important;
+        background-color: #18181b !important;
+        border-color: #71717a !important;
     }
     
     /* Bouton Téléchargement */
     div[data-testid="stDownloadButton"] > button {
         background-color: transparent !important;
-        color: #ffffff !important;
-        border: 1px dashed #555555 !important;
+        color: #f4f4f5 !important;
+        border: 1px dashed #3f3f46 !important;
         border-radius: 4px !important;
         width: 100% !important;
         text-transform: uppercase !important;
@@ -92,23 +92,23 @@ st.markdown("""
         letter-spacing: 0.05em !important;
     }
     div[data-testid="stDownloadButton"] > button:hover {
-        background-color: #111111 !important;
+        background-color: #18181b !important;
         border-color: #ffffff !important;
     }
     
     /* Zone de texte de saisie */
     [data-testid="stTextArea"] textarea {
-        background-color: #0a0a0a !important;
-        border: 1px solid #333333 !important;
+        background-color: #18181b !important;
+        border: 1px solid #3f3f46 !important;
         border-radius: 4px !important;
-        color: #ffffff !important;
+        color: #f4f4f5 !important;
         font-family: 'JetBrains Mono', monospace !important;
         font-size: 0.9rem !important;
         padding: 14px !important;
         transition: all 0.2s ease !important;
     }
     [data-testid="stTextArea"] textarea:focus {
-        border-color: #ffffff !important;
+        border-color: #f4f4f5 !important;
         box-shadow: none !important;
     }
     
@@ -117,29 +117,30 @@ st.markdown("""
         background-color: transparent !important;
     }
     [data-testid="stSelectbox"] div[role="button"] {
-        background-color: #0a0a0a !important;
-        border: 1px solid #333333 !important;
+        background-color: #18181b !important;
+        border: 1px solid #3f3f46 !important;
         border-radius: 4px !important;
-        color: #ffffff !important;
+        color: #f4f4f5 !important;
     }
     
     /* Zone de dépôt des fichiers */
     [data-testid="stFileUploader"] {
-        background-color: #0a0a0a !important;
-        border: 1px dashed #333333 !important;
+        background-color: #18181b !important;
+        border: 1px dashed #3f3f46 !important;
         border-radius: 4px !important;
         padding: 14px !important;
     }
-    [data-testid="stFileUploader"] section {
-        background-color: transparent !important;
-        border: none !important;
-        color: #ffffff !important;
+    [data-testid="stFileUploader"] * {
+        color: #a1a1aa !important;
+    }
+    [data-testid="stFileUploader"] button {
+        color: #000000 !important;
     }
     
     /* Conteneur de réponse RAG */
     [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: #0a0a0a !important;
-        border: 1px solid #333333 !important;
+        background-color: #18181b !important;
+        border: 1px solid #27272a !important;
         border-radius: 4px !important;
         padding: 24px !important;
         margin-top: 15px !important;
@@ -147,13 +148,13 @@ st.markdown("""
     
     /* Accordéons / Expanders de l'historique */
     div[data-testid="stExpander"] {
-        background-color: #0a0a0a !important;
-        border: 1px solid #333333 !important;
+        background-color: #18181b !important;
+        border: 1px solid #27272a !important;
         border-radius: 4px !important;
     }
     div[data-testid="stExpander"] summary {
-        background-color: #0a0a0a !important;
-        color: #ffffff !important;
+        background-color: #18181b !important;
+        color: #f4f4f5 !important;
         font-weight: 600 !important;
     }
     div[data-testid="stExpander"] summary:hover {
@@ -162,14 +163,14 @@ st.markdown("""
     
     /* Text input pour API keys */
     [data-testid="stTextInput"] input {
-        background-color: #0a0a0a !important;
-        border: 1px solid #333333 !important;
+        background-color: #18181b !important;
+        border: 1px solid #3f3f46 !important;
         border-radius: 4px !important;
-        color: #ffffff !important;
+        color: #f4f4f5 !important;
         font-family: 'JetBrains Mono', monospace !important;
     }
     [data-testid="stTextInput"] input:focus {
-        border-color: #ffffff !important;
+        border-color: #f4f4f5 !important;
         box-shadow: none !important;
     }
     
