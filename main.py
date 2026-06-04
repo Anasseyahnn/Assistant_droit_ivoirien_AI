@@ -21,164 +21,161 @@ st.set_page_config(
     layout="wide"
 )
 
-# Application d'un style CSS premium (Thème Clair Moderne)
+# Application d'un style CSS premium (Thème Dark SaaS Minimaliste)
 st.markdown("""
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
     /* Supprimer les en-têtes et pieds de page par défaut de Streamlit */
     header {visibility: hidden !important;}
     footer {visibility: hidden !important;}
     
-    /* Styles généraux - Thème Clair Moderne */
-    html, body, [data-testid="stAppViewContainer"] {
-        background-color: #f8fafc !important;
-        background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
-                          radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.03) 0px, transparent 50%) !important;
-        color: #334155 !important;
-        font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
+    /* Styles généraux - Thème Studio Dark */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background-color: #050505 !important;
+        color: #ffffff !important;
+        font-family: 'Space Grotesk', -apple-system, sans-serif !important;
     }
     
     /* Style de la barre latérale */
     [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-        border-right: 1px solid #e2e8f0 !important;
+        background-color: #0a0a0a !important;
+        border-right: 1px solid #1f1f1f !important;
     }
     
     /* Titres globaux */
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-family: 'Space Grotesk', sans-serif !important;
         font-weight: 700 !important;
+        color: #ffffff !important;
         letter-spacing: -0.02em !important;
     }
     
     /* Boutons principaux */
     .stButton>button {
         width: 100% !important;
-        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
-        color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 12px !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: none !important;
+        border-radius: 4px !important;
         padding: 0.6rem 1.5rem !important;
         font-weight: 600 !important;
         transition: all 0.2s ease !important;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
+        text-transform: uppercase !important;
+        font-size: 0.85rem !important;
+        letter-spacing: 0.05em !important;
     }
     .stButton>button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25) !important;
-        border-color: rgba(255, 255, 255, 0.2) !important;
-        color: white !important;
-    }
-    .stButton>button:active {
-        transform: translateY(0) !important;
+        background: #e5e5e5 !important;
+        transform: translateY(-1px) !important;
     }
     
     /* Boutons secondaires (Historique, etc.) */
     .stButton>button[key*="save_btn"] {
-        background-color: #ffffff !important;
-        color: #475569 !important;
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+        background-color: transparent !important;
+        color: #ffffff !important;
+        border: 1px solid #333333 !important;
     }
     .stButton>button[key*="save_btn"]:hover {
-        background-color: #f8fafc !important;
-        border-color: #94a3b8 !important;
-        color: #0f172a !important;
+        background-color: #111111 !important;
+        border-color: #555555 !important;
     }
     
     /* Bouton Téléchargement */
     div[data-testid="stDownloadButton"] > button {
-        background-color: rgba(16, 185, 129, 0.06) !important;
-        color: #059669 !important;
-        border: 1px solid rgba(16, 185, 129, 0.2) !important;
-        border-radius: 12px !important;
-        padding: 0.6rem 1.5rem !important;
-        font-weight: 600 !important;
-        transition: all 0.2s ease !important;
+        background-color: transparent !important;
+        color: #ffffff !important;
+        border: 1px dashed #555555 !important;
+        border-radius: 4px !important;
         width: 100% !important;
+        text-transform: uppercase !important;
+        font-size: 0.85rem !important;
+        letter-spacing: 0.05em !important;
     }
     div[data-testid="stDownloadButton"] > button:hover {
-        background-color: rgba(16, 185, 129, 0.12) !important;
-        border-color: rgba(16, 185, 129, 0.3) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1) !important;
+        background-color: #111111 !important;
+        border-color: #ffffff !important;
     }
     
     /* Zone de texte de saisie */
     [data-testid="stTextArea"] textarea {
-        background-color: #ffffff !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 12px !important;
-        color: #1e293b !important;
-        font-size: 1rem !important;
+        background-color: #0a0a0a !important;
+        border: 1px solid #333333 !important;
+        border-radius: 4px !important;
+        color: #ffffff !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 0.9rem !important;
         padding: 14px !important;
-        line-height: 1.6 !important;
         transition: all 0.2s ease !important;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
     }
     [data-testid="stTextArea"] textarea:focus {
-        border-color: #3b82f6 !important;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+        border-color: #ffffff !important;
+        box-shadow: none !important;
     }
     
     /* Sélecteurs déroulants (Selectboxes) */
     [data-testid="stSelectbox"] > div {
-        background-color: #ffffff !important;
+        background-color: transparent !important;
     }
     [data-testid="stSelectbox"] div[role="button"] {
-        background-color: #ffffff !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 12px !important;
-        color: #1e293b !important;
-        padding: 4px 12px !important;
+        background-color: #0a0a0a !important;
+        border: 1px solid #333333 !important;
+        border-radius: 4px !important;
+        color: #ffffff !important;
     }
     
     /* Zone de dépôt des fichiers */
     [data-testid="stFileUploader"] {
-        background-color: #ffffff !important;
-        border: 1.5px dashed #cbd5e1 !important;
-        border-radius: 12px !important;
+        background-color: #0a0a0a !important;
+        border: 1px dashed #333333 !important;
+        border-radius: 4px !important;
         padding: 14px !important;
     }
     [data-testid="stFileUploader"] section {
         background-color: transparent !important;
         border: none !important;
+        color: #ffffff !important;
     }
     
-    /* Conteneur de réponse RAG (avec bordure) */
+    /* Conteneur de réponse RAG */
     [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 16px !important;
+        background-color: #0a0a0a !important;
+        border: 1px solid #333333 !important;
+        border-radius: 4px !important;
         padding: 24px !important;
         margin-top: 15px !important;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
     }
     
     /* Accordéons / Expanders de l'historique */
     div[data-testid="stExpander"] {
-        background-color: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01) !important;
-    }
-    div[data-testid="stExpander"] details {
-        border: none !important;
+        background-color: #0a0a0a !important;
+        border: 1px solid #333333 !important;
+        border-radius: 4px !important;
     }
     div[data-testid="stExpander"] summary {
-        background-color: #ffffff !important;
-        color: #334155 !important;
+        background-color: #0a0a0a !important;
+        color: #ffffff !important;
         font-weight: 600 !important;
-        padding: 14px 18px !important;
     }
     div[data-testid="stExpander"] summary:hover {
-        color: #2563eb !important;
+        color: #a1a1aa !important;
+    }
+    
+    /* Text input pour API keys */
+    [data-testid="stTextInput"] input {
+        background-color: #0a0a0a !important;
+        border: 1px solid #333333 !important;
+        border-radius: 4px !important;
+        color: #ffffff !important;
+        font-family: 'JetBrains Mono', monospace !important;
+    }
+    [data-testid="stTextInput"] input:focus {
+        border-color: #ffffff !important;
+        box-shadow: none !important;
     }
     
     /* Case à cocher */
     [data-testid="stCheckbox"] label span {
-        color: #334155 !important;
+        color: #a1a1aa !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -320,28 +317,22 @@ def get_rag_response(question, model_option, sub_model, uploaded_files=None):
 
 # Interface utilisateur principale
 st.markdown("""
-<div style="display: flex; align-items: center; gap: 16px; margin-top: -30px; margin-bottom: 5px;">
-    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.15));">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-    </svg>
-    <div>
-        <h1 style="margin: 0; padding: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, #0f172a 40%, #1e3a8a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.03em;">
-            Assistant Juridique
-        </h1>
-        <p style="margin: 4px 0 0 0; padding: 0; color: #475569; font-size: 1rem; font-weight: 500;">
-            Côte d'Ivoire — Modélisation IA & Analyse Législative
-        </p>
-    </div>
+<div style="margin-top: -30px; margin-bottom: 25px;">
+    <h1 style="margin: 0; padding: 0; font-size: 2.5rem; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: -0.02em;">
+        Assistant Juridique
+    </h1>
+    <p style="margin: 4px 0 0 0; padding: 0; color: #a1a1aa; font-size: 1rem; font-family: 'JetBrains Mono', monospace;">
+        Côte d'Ivoire — Modélisation IA & Analyse Législative
+    </p>
 </div>
-<hr style="margin: 15px 0 25px 0; border: 0; border-top: 1px solid #e2e8f0;">
+<hr style="margin: 15px 0 25px 0; border: 0; border-top: 1px solid #333333;">
 """, unsafe_allow_html=True)
 
 # Configuration de la Sidebar
 with st.sidebar:
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        <span style="font-size: 1.15rem; font-weight: 700; color: #1e293b;">Configuration</span>
+    <div style="margin-bottom: 15px;">
+        <span style="font-size: 0.9rem; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Configuration</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -350,27 +341,35 @@ with st.sidebar:
         ["Anthropic (Claude)", "OpenAI (GPT)", "Ollama (Llama3.2)"]
     )
 
+    user_openai_key = st.text_input("Clé API OpenAI (optionnel)", type="password")
+    user_anthropic_key = st.text_input("Clé API Anthropic (optionnel)", type="password")
+
+    if user_openai_key:
+        os.environ["OPENAI_API_KEY"] = user_openai_key
+    if user_anthropic_key:
+        os.environ["ANTHROPIC_API_KEY"] = user_anthropic_key
+
     # Indicateurs d'état des API en temps réel (Style Thème Clair)
     has_anthropic = bool(os.getenv("ANTHROPIC_API_KEY"))
     has_openai = bool(os.getenv("OPENAI_API_KEY"))
     
-    status_claude = "🟢 Actif" if has_anthropic else "🔴 Non configuré"
-    status_gpt = "🟢 Actif" if has_openai else "🔴 Non configuré"
-    status_ollama = "🔴 Non configuré" # Ollama non disponible sur le système
+    status_claude = "ACTIF" if has_anthropic else "NON CONFIGURÉ"
+    status_gpt = "ACTIF" if has_openai else "NON CONFIGURÉ"
+    status_ollama = "NON CONFIGURÉ" # Ollama non disponible sur le système
     
     st.markdown(f"""
-    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; margin-top: 10px; font-size: 0.85rem;">
+    <div style="background-color: #0a0a0a; border: 1px solid #333333; border-radius: 4px; padding: 12px; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">
         <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
-            <span style="color:#64748b;">Claude API :</span>
-            <span style="font-weight:600; color:{'#059669' if has_anthropic else '#dc2626'};">{status_claude}</span>
+            <span style="color:#71717a;">Claude API :</span>
+            <span style="color:{'#ffffff' if has_anthropic else '#52525b'};">{status_claude}</span>
         </div>
         <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
-            <span style="color:#64748b;">OpenAI API :</span>
-            <span style="font-weight:600; color:{'#059669' if has_openai else '#dc2626'};">{status_gpt}</span>
+            <span style="color:#71717a;">OpenAI API :</span>
+            <span style="color:{'#ffffff' if has_openai else '#52525b'};">{status_gpt}</span>
         </div>
         <div style="display:flex; justify-content:space-between;">
-            <span style="color:#64748b;">Ollama Local :</span>
-            <span style="font-weight:600; color:#dc2626;">{status_ollama}</span>
+            <span style="color:#71717a;">Ollama Local :</span>
+            <span style="color:#52525b;">{status_ollama}</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -393,9 +392,8 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-        <span style="font-size: 1.1rem; font-weight: 700; color: #1e293b;">Base de données</span>
+    <div style="margin-bottom: 12px;">
+        <span style="font-size: 0.9rem; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Base de données</span>
     </div>
     """, unsafe_allow_html=True)
     
@@ -403,26 +401,24 @@ with st.sidebar:
 
     if use_rag:
         st.markdown("""
-        <div style="background-color: rgba(37,99,235,0.04); border: 1px solid rgba(37,99,235,0.12); border-radius: 8px; padding: 10px; font-size: 0.8rem; color: #1e3a8a; margin-top: 10px; line-height: 1.4;">
+        <div style="background-color: #111111; border: 1px dashed #333333; border-radius: 4px; padding: 10px; font-size: 0.8rem; color: #a1a1aa; margin-top: 10px; font-family: 'JetBrains Mono', monospace;">
             <strong>Index sémantique actif :</strong><br>
-            • Code du Travail de Côte d'Ivoire
+            > Code du Travail de Côte d'Ivoire
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-        <span style="font-size: 0.85rem; font-weight: 700; color: #d97706;">Information Légale</span>
+    <div style="margin-bottom: 8px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">Information Légale</span>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 0.8rem; color: #64748b; line-height: 1.4; margin: 0;'>Les réponses fournies sont issues d'une analyse automatisée et ont un but informatif. Elles ne remplacent pas l'avis officiel d'un avocat.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 0.75rem; color: #52525b; line-height: 1.4; margin: 0;'>Les réponses fournies sont issues d'une analyse automatisée et ont un but informatif. Elles ne remplacent pas l'avis officiel d'un avocat.</p>", unsafe_allow_html=True)
 
 # Zone d'import de documents utilisateur
 st.markdown("""
-<div style="display: flex; align-items: center; gap: 10px; margin-top: 5px; margin-bottom: 12px;">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-    <span style="font-size: 1.2rem; font-weight: 700; color: #1e293b;">Documents additionnels (Optionnel)</span>
+<div style="margin-top: 5px; margin-bottom: 12px;">
+    <span style="font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Documents additionnels (Optionnel)</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -434,9 +430,8 @@ uploaded_files = st.file_uploader(
 
 # Formulaire de question
 st.markdown("""
-<div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; margin-bottom: 12px;">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-    <span style="font-size: 1.2rem; font-weight: 700; color: #1e293b;">Votre requête juridique</span>
+<div style="margin-top: 15px; margin-bottom: 12px;">
+    <span style="font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Votre requête juridique</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -471,9 +466,8 @@ if submit_clicked:
 
             # Affichage de la réponse dans un cadre stylé
             st.markdown("""
-            <div style="display: flex; align-items: center; gap: 10px; margin-top: 25px; margin-bottom: 12px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 5px rgba(5, 150, 105, 0.15));"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #1e293b;">Analyse Juridique Délivrée</span>
+            <div style="margin-top: 25px; margin-bottom: 12px;">
+                <span style="font-size: 1.1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; border-bottom: 2px solid #ffffff; padding-bottom: 4px;">Analyse Juridique Délivrée</span>
             </div>
             """, unsafe_allow_html=True)
             
@@ -515,15 +509,13 @@ if save_clicked:
 if st.session_state.history:
     st.markdown("---")
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 20px;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
-        <span style="font-size: 1.2rem; font-weight: 700; color: #1e293b;">Historique de vos consultations</span>
+    <div style="margin-top: 10px; margin-bottom: 20px;">
+        <span style="font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase;">Historique de vos consultations</span>
     </div>
     """, unsafe_allow_html=True)
     for i, (q, r) in enumerate(st.session_state.history):
         with st.expander(f"Consultation #{i + 1} : {q[:80]}..."):
             st.markdown(r)
 
-# Pied de page
 st.markdown("---")
-st.markdown("<center style='font-size: 0.85rem; color: #64748b;'>Développé avec <b>Streamlit</b> & <b>LlamaIndex</b> | MLOps Data Science & RAG Pipeline</center>", unsafe_allow_html=True)
+st.markdown("<center style='font-size: 0.75rem; color: #52525b; font-family: \"JetBrains Mono\", monospace;'>DÉVELOPPÉ AVEC STREAMLIT & LLAMAINDEX | LLM ENGINEERING & RAG PIPELINE</center>", unsafe_allow_html=True)
