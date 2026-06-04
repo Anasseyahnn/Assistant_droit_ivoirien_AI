@@ -23,160 +23,17 @@ st.set_page_config(
 
 # Application d'un style CSS premium (Thème Dark SaaS Minimaliste)
 st.markdown("""
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-    /* Supprimer les en-têtes et pieds de page par défaut de Streamlit */
+    /* Masquer le header et footer par défaut */
     header {visibility: hidden !important;}
     footer {visibility: hidden !important;}
     
-    /* Styles généraux - Thème Studio Dark */
-    html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
-        background-color: #09090b !important;
-        color: #f4f4f5 !important;
-        font-family: 'Space Grotesk', -apple-system, sans-serif !important;
-    }
-    
-    /* Style de la barre latérale */
-    [data-testid="stSidebar"] {
-        background-color: #09090b !important;
-        border-right: 1px solid #27272a !important;
-    }
-    
-    /* Titres globaux */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif !important;
-        font-weight: 700 !important;
-        color: #ffffff !important;
-        letter-spacing: -0.02em !important;
-    }
-    
-    /* Boutons principaux */
+    /* Boutons en pleine largeur */
     .stButton>button {
         width: 100% !important;
-        background: #ffffff !important;
-        color: #000000 !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 0.6rem 1.5rem !important;
-        font-weight: 600 !important;
-        transition: all 0.2s ease !important;
-        text-transform: uppercase !important;
-        font-size: 0.85rem !important;
-        letter-spacing: 0.05em !important;
     }
-    .stButton>button:hover {
-        background: #e5e5e5 !important;
-        transform: translateY(-1px) !important;
-    }
-    
-    /* Boutons secondaires (Historique, etc.) */
-    .stButton>button[key*="save_btn"] {
-        background-color: transparent !important;
-        color: #f4f4f5 !important;
-        border: 1px solid #3f3f46 !important;
-    }
-    .stButton>button[key*="save_btn"]:hover {
-        background-color: #18181b !important;
-        border-color: #71717a !important;
-    }
-    
-    /* Bouton Téléchargement */
     div[data-testid="stDownloadButton"] > button {
-        background-color: transparent !important;
-        color: #f4f4f5 !important;
-        border: 1px dashed #3f3f46 !important;
-        border-radius: 4px !important;
         width: 100% !important;
-        text-transform: uppercase !important;
-        font-size: 0.85rem !important;
-        letter-spacing: 0.05em !important;
-    }
-    div[data-testid="stDownloadButton"] > button:hover {
-        background-color: #18181b !important;
-        border-color: #ffffff !important;
-    }
-    
-    /* Zone de texte de saisie */
-    [data-testid="stTextArea"] textarea {
-        background-color: #18181b !important;
-        border: 1px solid #3f3f46 !important;
-        border-radius: 4px !important;
-        color: #f4f4f5 !important;
-        font-family: 'JetBrains Mono', monospace !important;
-        font-size: 0.9rem !important;
-        padding: 14px !important;
-        transition: all 0.2s ease !important;
-    }
-    [data-testid="stTextArea"] textarea:focus {
-        border-color: #f4f4f5 !important;
-        box-shadow: none !important;
-    }
-    
-    /* Sélecteurs déroulants (Selectboxes) */
-    [data-testid="stSelectbox"] > div {
-        background-color: transparent !important;
-    }
-    [data-testid="stSelectbox"] div[role="button"] {
-        background-color: #18181b !important;
-        border: 1px solid #3f3f46 !important;
-        border-radius: 4px !important;
-        color: #f4f4f5 !important;
-    }
-    
-    /* Zone de dépôt des fichiers */
-    [data-testid="stFileUploader"] {
-        background-color: #18181b !important;
-        border: 1px dashed #3f3f46 !important;
-        border-radius: 4px !important;
-        padding: 14px !important;
-    }
-    [data-testid="stFileUploader"] * {
-        color: #a1a1aa !important;
-    }
-    [data-testid="stFileUploader"] button {
-        color: #000000 !important;
-    }
-    
-    /* Conteneur de réponse RAG */
-    [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: #18181b !important;
-        border: 1px solid #27272a !important;
-        border-radius: 4px !important;
-        padding: 24px !important;
-        margin-top: 15px !important;
-    }
-    
-    /* Accordéons / Expanders de l'historique */
-    div[data-testid="stExpander"] {
-        background-color: #18181b !important;
-        border: 1px solid #27272a !important;
-        border-radius: 4px !important;
-    }
-    div[data-testid="stExpander"] summary {
-        background-color: #18181b !important;
-        color: #f4f4f5 !important;
-        font-weight: 600 !important;
-    }
-    div[data-testid="stExpander"] summary:hover {
-        color: #a1a1aa !important;
-    }
-    
-    /* Text input pour API keys */
-    [data-testid="stTextInput"] input {
-        background-color: #18181b !important;
-        border: 1px solid #3f3f46 !important;
-        border-radius: 4px !important;
-        color: #f4f4f5 !important;
-        font-family: 'JetBrains Mono', monospace !important;
-    }
-    [data-testid="stTextInput"] input:focus {
-        border-color: #f4f4f5 !important;
-        box-shadow: none !important;
-    }
-    
-    /* Case à cocher */
-    [data-testid="stCheckbox"] label span {
-        color: #a1a1aa !important;
     }
 </style>
 """, unsafe_allow_html=True)
